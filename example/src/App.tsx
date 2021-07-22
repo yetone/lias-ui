@@ -1,10 +1,26 @@
 import React from 'react'
 
-import { ExampleComponent } from 'lias-ui'
-import 'lias-ui/dist/index.css'
+import { Button } from 'lias-ui'
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+    return (
+        <div
+            style={{
+                padding: 100,
+            }}
+        >
+            <Button
+                type='primary'
+                danger
+                prefix={<span>❤️</span>}
+                onClick={(e) => {
+                    console.log(e)
+                }}
+            >
+                测试而已
+            </Button>
+        </div>
+    )
 }
 
 export default App
