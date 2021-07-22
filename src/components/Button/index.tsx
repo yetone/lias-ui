@@ -1,3 +1,4 @@
+import { InternalCSS } from '@stitches/react'
 import React, { MouseEventHandler, useCallback, useRef, useState } from 'react'
 import { styled, keyframes } from '../../stitches.config'
 
@@ -19,7 +20,7 @@ const StyledButton = styled('button', {
     '$$hoverBackgroundColor': 'transparent',
     '$$waveShadowColor': '$$hoverBorderColor',
     '$$borderRadius': '$radii$3',
-    'display': 'flex',
+    'display': 'inline-flex',
     'flexDirection': 'row',
     'alignItems': 'center',
     'gap': '$2',
@@ -49,11 +50,6 @@ const StyledButton = styled('button', {
         boxShadow: '0 0 0 0 $$waveShadowColor',
         opacity: 0,
     },
-    '&:hover': {
-        color: '$$hoverTextColor',
-        backgroundColor: '$$hoverBackgroundColor',
-        borderColor: '$$hoverBorderColor',
-    },
     'variants': {
         primary: {
             true: {
@@ -73,6 +69,23 @@ const StyledButton = styled('button', {
                 $$hoverBorderColor: '$colors$red400',
             },
         },
+        disable: {
+            true: {
+                $$textColor: '$colors$textSecondary !important',
+                $$hoverTextColor: '$colors$textTertiary !important',
+                $$borderColor: '$colors$textTertiary',
+                $$backgroundColor: '$$borderColor',
+                $$hoverBorderColor: '$$borderColor',
+                $$hoverBackgroundColor: '$$backgroundColor',
+            },
+            false: {
+                '&:hover': {
+                    color: '$$hoverTextColor',
+                    backgroundColor: '$$hoverBackgroundColor',
+                    borderColor: '$$hoverBorderColor',
+                },
+            },
+        },
         wave: {
             true: {
                 '&::after': {
@@ -90,9 +103,20 @@ export interface IButtonProps {
     onClick?: MouseEventHandler<HTMLButtonElement>
     prefix?: React.ReactNode
     suffix?: React.ReactNode
+    css?: InternalCSS
+    disabled?: boolean
 }
 
-export function Button({ prefix, suffix, children, type = 'default', danger, onClick }: IButtonProps) {
+export function Button({
+    prefix,
+    suffix,
+    css,
+    children,
+    type = 'default',
+    danger,
+    onClick,
+    disabled = false,
+}: IButtonProps) {
     const [wave, setWave] = useState(false)
     const waveTimerRef = useRef<number>()
     const handleClick = useCallback(
@@ -113,7 +137,15 @@ export function Button({ prefix, suffix, children, type = 'default', danger, onC
     )
 
     return (
-        <StyledButton primary={type === 'primary'} danger={danger} wave={wave} onClick={handleClick}>
+        <StyledButton
+            disable={disabled}
+            disabled={disabled}
+            css={css}
+            primary={type === 'primary'}
+            danger={danger}
+            wave={wave}
+            onClick={handleClick}
+        >
             {prefix && <span className='prefix'>{prefix}</span>}
             <span>{children}</span>
             {suffix && <span className='suffix'>{suffix}</span>}

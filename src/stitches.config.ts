@@ -3,7 +3,8 @@ import { createCss } from '@stitches/react'
 export const { styled, keyframes, css } = createCss({
     theme: {
         colors: {
-            themePrimary: '#7E5AB8',
+            // themePrimary: '#7E5AB8',
+            themePrimary: '#936ecd',
             themeSecondary: '#9273c3',
             themeTertiary: '#b096da',
             textPrimary: '#000000d9',
