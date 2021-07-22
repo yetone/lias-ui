@@ -2,7 +2,7 @@
 
 WARNING: This project is still in the very early stages of development.
 
-[![NPM](https://img.shields.io/npm/v/lias-ui.svg)](https://www.npmjs.com/package/lias-ui) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/lias-ui.svg)](https://www.npmjs.com/package/lias-ui) [![Airbnb JavaScript Style Guide](https://badgen.net/badge/code%20style/airbnb/ff5a5f?icon=airbnb&cache=300)](https://airbnb.io/javascript)
 
 ## Install
 
