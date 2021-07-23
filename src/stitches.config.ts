@@ -5,7 +5,7 @@ export const { styled, keyframes, css } = createCss({
         colors: {
             // themePrimary: '#7E5AB8',
             themePrimary: '#936ecd',
-            themeSecondary: '#9273c3',
+            themeSecondary: '#9e81cd',
             themeTertiary: '#b096da',
             textPrimary: '#000000d9',
             textSecondary: '#00000040',
