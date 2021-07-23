@@ -32,6 +32,7 @@ const App = () => {
                 }}
             />
             <Input
+                placeholder='xixi'
                 css={{
                     marginRight: '20px',
                 }}

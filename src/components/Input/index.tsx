@@ -179,6 +179,7 @@ export interface IInputProps<T> {
     value?: T
     defaultValue?: T
     onChange?: (newValue?: T) => void
+    placeholder?: string
     css?: InternalCSS
     inputContainerCSS?: InternalCSS
     inputCSS?: InternalCSS
@@ -199,6 +200,7 @@ export function Input<T extends string | number>({
     value,
     defaultValue,
     onChange,
+    placeholder,
     prefix,
     suffix,
     onFocus,
@@ -249,6 +251,7 @@ export function Input<T extends string | number>({
             >
                 <InputBackground css={backgroundCSS} focus={focus} prefix={!!prefix} suffix={!!suffix} />
                 <StyledInput
+                    placeholder={placeholder}
                     disabled={disabled}
                     disable={disabled}
                     value={value}
